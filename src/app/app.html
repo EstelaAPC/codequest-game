@@ -1,344 +1,919 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<main class="game-shell">
+  <header class="topbar">
+    <div class="brand" aria-label="CodeQuest">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img">
+          <path d="M7 11h26v20H7z" rx="6" fill="#f5c959" />
+          <path d="M14 19h2m8 0h2M16 26h8" stroke="#233c30" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M20 5v6m-8-5 3 5m13-5-3 5" stroke="#f5c959" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span><strong>codequest</strong><small>APRENDA BRINCANDO</small></span>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
+    <div class="topbar-right">
+      <button class="world-map-button" type="button" (click)="openWorldMap()" aria-label="Abrir mapa de Codária" title="Mapa de Codária">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.5 12h17M12 3c2.2 2.4 3.2 5.4 3.2 9s-1 6.6-3.2 9c-2.2-2.4-3.2-5.4-3.2-9S9.8 5.4 12 3Z"></path></svg>
+        <span>Mapa Codária</span>
+      </button>
+      <div class="progress-track" role="progressbar" [attr.aria-valuenow]="completed().length" aria-valuemin="0" [attr.aria-valuemax]="missions.length" aria-label="Missões concluídas">
+        <span [style.width.%]="completed().length / missions.length * 100"></span>
+      </div>
+      <strong class="progress-count">{{ completed().length }}<span>/{{ missions.length }}</span></strong>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <section class="play-area" aria-label="Área da missão">
+      <div class="mission-heading">
+        <div>
+          <div class="breadcrumb">Missão {{ missions.indexOf(currentMission()) + 1 }}</div>
+          <div class="mission-heading-title-row">
+            <h1>{{ currentMission().title }}</h1>
+            <button class="lesson-replay-button" type="button" (click)="replayLesson()" aria-label="Ver o tutorial desta missão novamente">↺ <span>Rever tutorial</span></button>
+          </div>
+          <div class="mission-objective" role="note">
+            <span class="objective-icon" aria-hidden="true">◎</span>
+            <span class="objective-label">OBJETIVO</span>
+            <strong>{{ currentMission().objective }}</strong>
+          </div>
+        </div>
+      </div>
+
+      <section class="scene-card" [class.is-running]="runStatus() === 'running'" aria-label="Cenário do jogo">
+        <div class="scene-landscape" [class.kitchen-scene]="!!kitchenMission()" [class.house-scene]="!gridMission() && !kitchenMission()">
+          <span class="cloud cloud-one" aria-hidden="true"></span>
+          <span class="cloud cloud-two" aria-hidden="true"></span>
+          <span class="scene-sun" aria-hidden="true"></span>
+          @if (gridMission(); as mission) {
+            <span class="scene-deco deco-left" aria-hidden="true">🌲</span>
+            <span class="scene-deco deco-right" aria-hidden="true">🌲</span>
+            <div class="game-board" [style.grid-template-columns]="'repeat(' + mission.width + ', minmax(0, 1fr))'" aria-label="Tabuleiro da missão">
+              @for (row of board(); track $index) {
+                @for (cell of row; track cell.x) {
+                  <div
+                    class="board-tile"
+                    [class.tile-bridge]="cell.kind === 'bridge'"
+                    [class.tile-broken-bridge]="cell.kind === 'broken-bridge'"
+                    [class.tile-detour]="cell.kind === 'detour'"
+                    [class.tile-plot]="cell.kind === 'plot'"
+                    [class.tile-crystal]="cell.kind === 'crystal'"
+                    [class.tile-start]="cell.x === mission.start.x && cell.y === mission.start.y"
+                    [class.tile-planted]="cell.planted"
+                  >
+                    @if (cell.kind === 'bridge') { <span class="tile-object bridge-object" aria-label="Ponte">⌁</span> }
+                    @if (cell.kind === 'broken-bridge') { <span class="tile-object broken-bridge-object" aria-label="Ponte quebrada">⌁</span> }
+                    @if (cell.kind === 'detour') { <span class="tile-object detour-object" aria-label="Caminho de desvio">·</span> }
+                    @if (cell.kind === 'plot') {
+                      @if (cell.planted) { <span class="tile-object plant-object" aria-label="Muda plantada">🌱</span> }
+                      @else { <span class="tile-object seed-object" aria-label="Canteiro vazio">·</span> }
+                    }
+                    @if (cell.kind === 'crystal') { <span class="tile-object crystal-object" aria-label="Cristal objetivo">◆</span> }
+                    @if (cell.hasByte) {
+                      <span class="byte-sprite" [class.byte-happy]="byteExpression() === 'happy'" [class.byte-worried]="byteExpression() === 'worried'" [class.byte-fallen]="byteFallen()" aria-label="Byte, robô protagonista">
+                        <svg viewBox="0 0 52 62" role="img" aria-hidden="true">
+                          <path d="M26 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          <rect x="8" y="11" width="36" height="31" rx="10" fill="#f9cc63" stroke="#294537" stroke-width="3" />
+                          <rect x="14" y="18" width="24" height="14" rx="6" fill="#fff7db" />
+                          @if (byteFallen()) {
+                            <path d="m17 22 6 6m0-6-6 6m8-6 6 6m0-6-6 6" fill="none" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M20 36q6-4 12 0" fill="none" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                          } @else if (byteExpression() === 'happy') {
+                            <path d="M17 25q3-5 6 0m4 0q3-5 6 0" fill="none" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M20 35q6 7 12 0" fill="none" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                          } @else if (byteExpression() === 'worried') {
+                            <circle cx="21" cy="25" r="2.5" fill="#294537" /><circle cx="31" cy="25" r="2.5" fill="#294537" />
+                            <path d="M21 39q5-5 10 0" fill="none" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                          } @else {
+                            <circle cx="21" cy="25" r="2.5" fill="#294537" /><circle cx="31" cy="25" r="2.5" fill="#294537" />
+                            <path d="M21 37h10" stroke="#294537" stroke-width="2.5" stroke-linecap="round" />
+                          }
+                          <path d="M14 43v7m24-7v7" stroke="#294537" stroke-width="4" stroke-linecap="round" />
+                          <path d="M4 23H8m36 0h4" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                    }
+                  </div>
+                }
+              }
+            </div>
+          } @else if (kitchenMission(); as mission) {
+            <div class="kitchen-stage" [class.kitchen-pantrystage]="mission.kitchenConcept === 'encapsulation'" [class.kitchen-pantry-zoom]="kitchenEffects().at(-1)?.startsWith('pantry-')" [class.kitchen-recipestage]="mission.kitchenConcept === 'abstraction'" [class.kitchen-inheritancestage]="mission.kitchenConcept === 'inheritance'" [class.kitchen-polymorphismstage]="mission.kitchenConcept === 'polymorphism'" [class.kitchen-action-active]="runStatus() === 'running'" [class.kitchen-mixing]="kitchenEffects().at(-1)?.endsWith('mixing')" [class.kitchen-baking]="kitchenEffects().at(-1)?.endsWith('baking')" [class.kitchen-decorating]="kitchenEffects().at(-1) === 'cake-decorating'" [class.kitchen-served]="kitchenServed()" aria-label="Bancada de madeira para organizar os ingredientes">
+              <div class="kitchen-window"><span>☀</span></div>
+              <div class="kitchen-shelf"><span>🫙</span><span>🧂</span><span>🍯</span></div>
+              @if (mission.kitchenConcept === 'encapsulation') {
+                <section class="pantry-workbench" aria-label="Bancada de madeira para organizar os ingredientes">
+                  <span class="pantry-workbench-caption">BANCADA DO BYTE</span>
+                  <div class="pantry-ingredient-layout">
+                    <div class="pantry-egg-bowl" aria-label="Bandeja para guardar ovos">
+                      <div class="pantry-egg-holder">
+                        @for (egg of [1, 2, 3, 4]; track egg) {
+                          @if (egg <= pantry().egg) { <span aria-hidden="true">🥚</span> }
+                        }
+                      </div>
+                      <strong>Ovos <small>{{ pantry().egg }} / 1</small></strong>
+                    </div>
+                    <div class="pantry-flour-spot" [class.has-flour]="pantry().flour > 0" aria-label="Espaço para adicionar farinha">
+                      <span class="pantry-flour-sack" aria-hidden="true">🌾</span>
+                      <strong>Farinha <small>{{ pantry().flour }} / 2</small></strong>
+                    </div>
+                  </div>
+                  @for (effect of kitchenEffects().slice(-1); track effect) {
+                    @if (effect.startsWith('pantry-flour-added-')) { <span class="pantry-flying-item flour-flight" aria-hidden="true">🌾</span> }
+                    @if (effect.startsWith('pantry-egg-added-')) { <span class="pantry-flying-item egg-flight" aria-hidden="true">🥚</span> }
+                  }
+                </section>
+              }
+              <div class="kitchen-wall-clock" aria-hidden="true">◷</div>
+              <div class="kitchen-island">
+                <span class="kitchen-herbs" aria-hidden="true">🌿</span>
+                <span class="kitchen-ingredient kitchen-flour" aria-hidden="true">🌾</span>
+                <span class="kitchen-ingredient kitchen-egg" aria-hidden="true">🥚</span>
+                <span class="kitchen-bowl" aria-label="Tigela de preparo">🥣</span>
+                <span class="kitchen-mixing-spark" aria-hidden="true">✦</span>
+                <div class="kitchen-stove"><span class="kitchen-burner"></span><span class="kitchen-burner"></span><span class="kitchen-oven">▦</span></div>
+                <span class="kitchen-pot" aria-label="Panela">🍲</span>
+                <span class="kitchen-counter-top"></span>
+                <span class="kitchen-counter-front"></span>
+              </div>
+              <span class="kitchen-byte" aria-label="Byte chegou à cozinha">
+                <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                  <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                  <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                  <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                  <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                  <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </span>
+              <div class="kitchen-serve-area" aria-live="polite">
+                @if (kitchenEffects().includes('bread-prepared')) { <span class="kitchen-dish kitchen-bread" aria-label="Pão pronto">🍞</span> }
+                @if (kitchenEffects().includes('cake-prepared')) { <span class="kitchen-dish kitchen-cake" aria-label="Bolo pronto">🎂</span> }
+                @if (kitchenEffects().includes('soup-prepared')) { <span class="kitchen-dish kitchen-soup" aria-label="Sopa pronta">🍲</span> }
+                @if (kitchenEffects().includes('cake-created') && !kitchenEffects().includes('cake-prepared')) { <span class="kitchen-recipe-card" aria-label="Receita de bolo criada">📜 ReceitaBolo</span> }
+              </div>
+              @if (kitchenAction(); as action) {
+                <div class="kitchen-action-bubble" aria-live="polite">{{ action }}</div>
+              }
+              <div class="kitchen-floor"></div>
+            </div>
+          } @else {
+            <span class="scene-deco deco-left house-plant-deco" aria-hidden="true">🪴</span>
+            <span class="scene-deco deco-right house-plant-deco" aria-hidden="true">🌼</span>
+            <div class="byte-house-stage" [class.house-lights-on]="houseEffects().includes('lights-on')" [class.house-door-open]="houseEffects().includes('door-open')" aria-label="Casa do Byte">
+              <div class="byte-house">
+                <div class="house-roof" [class.house-feature-active]="houseProperties().includes('roof')"></div>
+                <div class="house-facade">
+                  <span class="house-window" [class.house-feature-active]="houseProperties().includes('window')">✦</span>
+                  <span class="house-door" [class.house-feature-active]="houseProperties().includes('door')"><i></i></span>
+                  <span class="house-window" [class.house-feature-active]="houseProperties().includes('window')">✦</span>
+                  <span class="house-byte" aria-label="Byte">
+                    <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                      <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                      <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                      <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                      <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                      <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="house-foundation"><span>casaDoByte</span></div>
+                @if (houseEffects().includes('bell-rung')) { <span class="house-bell-note" aria-live="polite">Dim-dong! Byte ouviu a campainha.</span> }
+              </div>
+            </div>
+          }
+          @if (!kitchenMission()) {
+            <div class="scene-character" [class.luma-crying]="byteFallen()" [attr.aria-label]="byteFallen() ? 'Luma está chorando porque Byte caiu' : 'Luma, guia da aventura'">
+              <svg class="luma-avatar-art" [class.luma-sad]="byteFallen()" viewBox="0 0 48 58" role="img" aria-hidden="true">
+                <path d="M24 8V4m-4 0h8" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+                <path d="m17 5 3-3 4 3 4-3 3 3-3 3h-8z" fill="#d5a9f2" stroke="#51366b" stroke-width="1.5" stroke-linejoin="round" />
+                <rect x="7" y="10" width="34" height="34" rx="11" fill="#b58add" stroke="#51366b" stroke-width="3" />
+                <rect x="12" y="16" width="24" height="16" rx="6" fill="#faf4ff" />
+                <path d="m17 22 2-2 2 2m6 0 2-2 2 2" fill="none" stroke="#51366b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="19" cy="24" r="1.6" fill="#51366b" /><circle cx="29" cy="24" r="1.6" fill="#51366b" />
+                @if (byteFallen()) {
+                  <path class="luma-tears" d="M15 25q-3 5 0 8 3-2 1-8m16 0q-3 5 0 8 3-2 1-8" fill="#65b8e8" />
+                  <path d="M19 31q5-5 10 0" fill="none" stroke="#51366b" stroke-width="2" stroke-linecap="round" />
+                } @else {
+                  <path d="M19 28q5 5 10 0" fill="none" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+                }
+                <path d="M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              <span>Luma</span>
+            </div>
+          }
+        </div>
+      </section>
+
+      <section class="mentor-message" [class.mentor-error]="runStatus() === 'error'" [class.mentor-success]="runStatus() === 'success'" aria-live="polite">
+        <span class="mentor-avatar" aria-hidden="true">
+          <svg class="luma-avatar-art" viewBox="0 0 48 58">
+            <path d="M24 8V4m-4 0h8" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+            <path d="m17 5 3-3 4 3 4-3 3 3-3 3h-8z" fill="#d5a9f2" stroke="#51366b" stroke-width="1.5" stroke-linejoin="round" />
+            <rect x="7" y="10" width="34" height="34" rx="11" fill="#b58add" stroke="#51366b" stroke-width="3" />
+            <rect x="12" y="16" width="24" height="16" rx="6" fill="#faf4ff" />
+            <path d="m17 22 2-2 2 2m6 0 2-2 2 2" fill="none" stroke="#51366b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="19" cy="24" r="1.6" fill="#51366b" /><circle cx="29" cy="24" r="1.6" fill="#51366b" />
+            <path d="M19 28q5 5 10 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </span>
+        <div><strong>Luma <span>· guia da aventura</span></strong><p>{{ message() }}</p></div>
+      </section>
+      @if (showHint()) {
+        <div class="hint-card" role="status"><span aria-hidden="true">✦</span><div><strong>Dica da Luma</strong><p>{{ currentMission().hint }}</p></div></div>
+      }
+      @if (storageWarning()) {
+        <p class="storage-warning" role="status">Não foi possível salvar seu progresso neste navegador. Você ainda pode jogar normalmente.</p>
+      }
+    </section>
+
+    <aside class="code-panel" aria-label="Editor de comandos">
+      <div class="editor-heading">
+        <div><span class="eyebrow">SEU PROGRAMA</span><h2>Oficina de código</h2></div>
+        <span class="block-count">{{ program().length }} <span>blocos</span></span>
+      </div>
+
+      <div class="block-library">
+        <span class="section-label">BLOCOS DISPONÍVEIS</span>
+        @if (currentMission().id === 'first-move') {
+          <button class="library-block move-block" type="button" draggable="true" (click)="addMove()" (dragstart)="startLibraryDrag($event, { type: 'move' })" (dragend)="endDrag()"><span class="block-symbol">↑</span><span><strong>Avançar</strong><small>Mover Byte uma casa</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (currentMission().id === 'broken-bridge') {
+          <button class="library-block move-block" type="button" draggable="true" (click)="addMove()" (dragstart)="startLibraryDrag($event, { type: 'move' })" (dragend)="endDrag()"><span class="block-symbol">↑</span><span><strong>Avançar</strong><small>Mover Byte uma casa</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block condition-block" type="button" draggable="true" (click)="addCondition()" (dragstart)="startLibraryDrag($event, { type: 'if-bridge' })" (dragend)="endDrag()"><span class="block-symbol">if</span><span><strong>Se houver ponte</strong><small>Byte atravessa</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (currentMission().id === 'bridge-detours') {
+          <button class="library-block move-block" type="button" draggable="true" (click)="addMove()" (dragstart)="startLibraryDrag($event, { type: 'move' })" (dragend)="endDrag()"><span class="block-symbol">↑</span><span><strong>Avançar</strong><small>Chegar até uma ponte</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block condition-block" type="button" draggable="true" (click)="addBridgeInspection()" (dragstart)="startLibraryDrag($event, { type: 'if-bridge-broken' })" (dragend)="endDrag()"><span class="block-symbol">if</span><span><strong>Verificar ponte</strong><small>Desviar se quebrada; senão, atravessar</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (currentMission().id === 'automated-garden') {
+          <button class="library-block loop-block" type="button" draggable="true" (click)="addLoop()" (dragstart)="startLibraryDrag($event, { type: 'repeat-garden', count: 4 })" (dragend)="endDrag()"><span class="block-symbol">↻</span><span><strong>Repetir 4x</strong><small>Avançar e plantar</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (currentMission().kind === 'house-properties') {
+          <button class="library-block house-block" type="button" draggable="true" (click)="addHouseProperty('roof')" (dragstart)="startLibraryDrag($event, { type: 'house-property', property: 'roof' })" (dragend)="endDrag()"><span class="block-symbol">⌂</span><span><strong>Telhado</strong><small>Uma propriedade da Casa</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block house-block" type="button" draggable="true" (click)="addHouseProperty('door')" (dragstart)="startLibraryDrag($event, { type: 'house-property', property: 'door' })" (dragend)="endDrag()"><span class="block-symbol">▯</span><span><strong>Porta</strong><small>Uma propriedade da Casa</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block house-block" type="button" draggable="true" (click)="addHouseProperty('window')" (dragstart)="startLibraryDrag($event, { type: 'house-property', property: 'window' })" (dragend)="endDrag()"><span class="block-symbol">▦</span><span><strong>Janela</strong><small>Uma propriedade da Casa</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (currentMission().kind === 'house-methods') {
+          <button class="library-block method-block" type="button" draggable="true" (click)="addHouseMethod('open-door')" (dragstart)="startLibraryDrag($event, { type: 'house-method', method: 'open-door' })" (dragend)="endDrag()"><span class="block-symbol">↗</span><span><strong>Abrir a porta</strong><small>casaDoByte.abrirPorta()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block method-block" type="button" draggable="true" (click)="addHouseMethod('turn-on-lights')" (dragstart)="startLibraryDrag($event, { type: 'house-method', method: 'turn-on-lights' })" (dragend)="endDrag()"><span class="block-symbol">☼</span><span><strong>Acender as luzes</strong><small>casaDoByte.acenderLuzes()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block method-block" type="button" draggable="true" (click)="addHouseMethod('ring-bell')" (dragstart)="startLibraryDrag($event, { type: 'house-method', method: 'ring-bell' })" (dragend)="endDrag()"><span class="block-symbol">♧</span><span><strong>Tocar a campainha</strong><small>casaDoByte.tocarCampainha()</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (kitchenMission()?.kitchenConcept === 'encapsulation') {
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addPantryAction('add', 'flour')" (dragstart)="startLibraryDrag($event, { type: 'pantry-add', ingredient: 'flour' })" (dragend)="endDrag()"><span class="block-symbol">＋</span><span><strong>Adicionar farinha</strong><small>despensa.adicionarIngrediente()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addPantryAction('remove', 'flour')" (dragstart)="startLibraryDrag($event, { type: 'pantry-remove', ingredient: 'flour' })" (dragend)="endDrag()"><span class="block-symbol">−</span><span><strong>Retirar farinha</strong><small>despensa.retirarIngrediente()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addPantryAction('add', 'egg')" (dragstart)="startLibraryDrag($event, { type: 'pantry-add', ingredient: 'egg' })" (dragend)="endDrag()"><span class="block-symbol">＋</span><span><strong>Adicionar ovo</strong><small>despensa.adicionarIngrediente()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addPantryAction('remove', 'egg')" (dragstart)="startLibraryDrag($event, { type: 'pantry-remove', ingredient: 'egg' })" (dragend)="endDrag()"><span class="block-symbol">−</span><span><strong>Retirar ovo</strong><small>despensa.retirarIngrediente()</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (kitchenMission()?.kitchenConcept === 'abstraction') {
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addRecipePreparation('bread')" (dragstart)="startLibraryDrag($event, { type: 'prepare-recipe', recipe: 'bread' })" (dragend)="endDrag()"><span class="block-symbol">🍞</span><span><strong>Preparar pão</strong><small>receita.preparar()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addDishServing('bread')" (dragstart)="startLibraryDrag($event, { type: 'serve-dish', dish: 'bread' })" (dragend)="endDrag()"><span class="block-symbol">🍽</span><span><strong>Servir pão</strong><small>servir(pao, Luma)</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (kitchenMission()?.kitchenConcept === 'inheritance') {
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addRecipeCreation('cake')" (dragstart)="startLibraryDrag($event, { type: 'create-recipe', recipe: 'cake' })" (dragend)="endDrag()"><span class="block-symbol">↳</span><span><strong>Criar receita de bolo</strong><small>ReceitaBolo extends Receita</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addRecipePreparation('cake')" (dragstart)="startLibraryDrag($event, { type: 'prepare-recipe', recipe: 'cake' })" (dragend)="endDrag()"><span class="block-symbol">🎂</span><span><strong>Preparar bolo</strong><small>bolo.preparar()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addCakeDecoration()" (dragstart)="startLibraryDrag($event, { type: 'decorate-cake' })" (dragend)="endDrag()"><span class="block-symbol">✨</span><span><strong>Colocar cobertura</strong><small>bolo.colocarCobertura()</small></span><span class="add-symbol">+</span></button>
+        }
+        @if (kitchenMission()?.kitchenConcept === 'polymorphism') {
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addDishPreparation('bread')" (dragstart)="startLibraryDrag($event, { type: 'prepare-dish', dish: 'bread' })" (dragend)="endDrag()"><span class="block-symbol">🥖</span><span><strong>Preparar pão</strong><small>receitaPao.preparar()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addDishPreparation('cake')" (dragstart)="startLibraryDrag($event, { type: 'prepare-dish', dish: 'cake' })" (dragend)="endDrag()"><span class="block-symbol">🎂</span><span><strong>Preparar bolo</strong><small>receitaBolo.preparar()</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addDishServing('bread')" (dragstart)="startLibraryDrag($event, { type: 'serve-dish', dish: 'bread' })" (dragend)="endDrag()"><span class="block-symbol">🍽</span><span><strong>Servir pão</strong><small>servir(pao, Luma)</small></span><span class="add-symbol">+</span></button>
+          <button class="library-block kitchen-library" type="button" draggable="true" (click)="addDishServing('cake')" (dragstart)="startLibraryDrag($event, { type: 'serve-dish', dish: 'cake' })" (dragend)="endDrag()"><span class="block-symbol">🍽</span><span><strong>Servir bolo</strong><small>servir(bolo, Luma)</small></span><span class="add-symbol">+</span></button>
         }
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+
+      <div class="program-section">
+        <div class="section-heading"><span class="section-label">SEQUÊNCIA</span><span class="drag-hint">arraste para organizar</span></div>
+        <div class="program-list" [class.program-empty]="!program().length" [class.drop-active]="dropTarget() === null && !!dragState()" (dragover)="allowDrop($event, null)" (drop)="dropCommand($event, null)">
+          @if (!program().length) {
+            <div class="empty-program"><span aria-hidden="true">＋</span><strong>Seu programa começa aqui</strong><p>Clique ou arraste blocos para cá.</p></div>
+          } @else {
+            @for (command of program(); track command.id; let index = $index) {
+              <div class="program-row" draggable="true" [class.active-block]="activeCommandId() === command.id && runStatus() === 'running'" [class.dragging-block]="isDraggingProgram(index)" [class.drop-target]="dropTarget() === index" (dragstart)="startProgramDrag($event, index)" (dragend)="endDrag()" (dragover)="allowDrop($event, index)" (drop)="dropCommand($event, index)">
+                <span class="drag-handle" aria-hidden="true">⠿</span>
+                <span class="line-number">{{ ('0' + (index + 1)).slice(-2) }}</span>
+                <span class="row-block"                 [class.row-condition]="command.type === 'if-bridge' || command.type === 'if-bridge-broken'" [class.row-loop]="command.type === 'repeat-garden'" [class.row-property]="command.type === 'house-property'" [class.row-method]="command.type === 'house-method'" [class.row-kitchen]="command.type === 'pantry-add' || command.type === 'pantry-remove' || command.type === 'prepare-recipe' || command.type === 'create-recipe' || command.type === 'prepare-dish' || command.type === 'decorate-cake' || command.type === 'serve-dish'">
+                  @if (command.type === 'move') { <span class="row-symbol">↑</span> Avançar }
+                  @if (command.type === 'if-bridge') { <span class="row-symbol">if</span> Se houver ponte <small>→ avançar</small> }
+                  @if (command.type === 'if-bridge-broken') { <span class="row-symbol">if</span> Verificar ponte <small>→ desviar ou atravessar</small> }
+                  @if (command.type === 'repeat-garden') { <span class="row-symbol">↻</span> Repetir {{ command.count }}x <small>→ plantar</small> }
+                  @if (command.type === 'house-property') { <span class="row-symbol">⌂</span> {{ propertyNames[command.property] }} }
+                  @if (command.type === 'house-method') { <span class="row-symbol">ƒ</span> {{ methodNames[command.method] }}() }
+                  @if (command.type === 'pantry-add') { <span class="row-symbol">＋</span> Adicionar {{ command.ingredient === 'flour' ? 'farinha' : 'ovo' }}
+                  }
+                  @if (command.type === 'pantry-remove') { <span class="row-symbol">−</span> Retirar {{ command.ingredient === 'flour' ? 'farinha' : 'ovo' }}
+                  }
+                  @if (command.type === 'prepare-recipe') { <span class="row-symbol">🍞</span> Preparar {{ command.recipe === 'bread' ? 'pão' : 'bolo' }} }
+                  @if (command.type === 'create-recipe') { <span class="row-symbol">↳</span> Criar ReceitaBolo }
+                  @if (command.type === 'prepare-dish') { <span class="row-symbol">🍽</span> Preparar {{ command.dish === 'bread' ? 'pão' : command.dish === 'cake' ? 'bolo' : 'sopa' }} }
+                  @if (command.type === 'decorate-cake') { <span class="row-symbol">✨</span> Colocar cobertura }
+                  @if (command.type === 'serve-dish') { <span class="row-symbol">🍽</span> Servir {{ command.dish === 'bread' ? 'pão' : 'bolo' }}
+                  }
+                </span>
+                <button class="remove-block" type="button" (click)="removeCommand(command.id)" [attr.aria-label]="'Remover bloco ' + (index + 1)">×</button>
+              </div>
+            }
+          }
+        </div>
       </div>
-    </div>
+
+      <div class="preview-section">
+        <div class="section-heading"><span class="section-label">CÓDIGO TYPESCRIPT</span><span class="read-only">SOMENTE LEITURA</span></div>
+        <div class="code-preview" aria-label="Código TypeScript com resultado por linha" aria-live="polite">
+          @for (line of codeLines(); track $index; let index = $index) {
+            <div
+              class="code-line"
+              [class.line-success]="line.commandId && lineStatuses()[line.commandId] === 'success'"
+              [class.line-error]="line.commandId && lineStatuses()[line.commandId] === 'error'"
+              [class.line-active]="line.commandId === activeCommandId() && runStatus() === 'running'"
+              [attr.data-status]="line.commandId ? lineStatuses()[line.commandId] ?? 'pending' : 'static'"
+            >
+              <span class="code-line-number">{{ index + 1 }}</span>
+              <span class="line-result" aria-hidden="true">
+                @if (line.commandId && lineStatuses()[line.commandId] === 'success') { ✓ }
+                @if (line.commandId && lineStatuses()[line.commandId] === 'error') { ✕ }
+              </span>
+              <code>{{ line.text }}</code>
+            </div>
+          }
+        </div>
+        <p class="code-feedback"><span class="feedback-good">✓ linha executada</span><span class="feedback-bad">✕ precisa de ajuste</span></p>
+      </div>
+
+      <div class="editor-actions">
+        <button class="run-button" type="button" (click)="runProgram()" [disabled]="runStatus() === 'running' || runStatus() === 'success'">
+          <span aria-hidden="true">▶</span> {{ runStatus() === 'running' ? 'Executando...' : 'Executar' }}
+        </button>
+        <button class="restart-button" type="button" (click)="restartMission()" aria-label="Reiniciar missão" title="Reiniciar missão">↺</button>
+      </div>
+      <p class="safe-note"><span aria-hidden="true">⌘</span> Seus blocos são seguros: eles não executam JavaScript livre.</p>
+    </aside>
   </div>
+  @if (lessonOpen()) {
+    <div class="lesson-backdrop">
+      <section class="lesson-dialog" role="dialog" aria-modal="true" [attr.aria-labelledby]="'lesson-title'">
+        <div class="lesson-progress"><span [class.progress-current]="lessonStage() === 'explanation'"></span><span [class.progress-current]="lessonStage() === 'demonstration'"></span></div>
+        @if (lessonStage() === 'explanation') {
+          <div class="lesson-content">
+            <span class="lesson-kicker">ANTES DA MISSÃO {{ missions.indexOf(currentMission()) + 1 }} <span>·</span> APRENDA O CONCEITO</span>
+            <div class="lesson-emblem" aria-hidden="true">
+              @if (currentMission().id === 'first-move') { <span>01</span> }
+              @if (currentMission().id === 'broken-bridge') { <span>if</span> }
+              @if (currentMission().id === 'bridge-detours') { <span>if/else</span> }
+              @if (currentMission().id === 'automated-garden') { <span>↻</span> }
+              @if (currentMission().kind === 'house-properties') { <span>⌂</span> }
+              @if (currentMission().kind === 'house-methods') { <span>ƒ</span> }
+              @if (kitchenMission()?.kitchenConcept === 'encapsulation') { <span>🔒</span> }
+              @if (kitchenMission()?.kitchenConcept === 'abstraction') { <span>▤</span> }
+              @if (kitchenMission()?.kitchenConcept === 'inheritance') { <span>↳</span> }
+              @if (kitchenMission()?.kitchenConcept === 'polymorphism') { <span>ƒ×</span> }
+            </div>
+            <span class="lesson-concept">{{ currentMission().concept }}</span>
+            <h2 id="lesson-title">{{ currentMission().lesson }}</h2>
+            <p class="lesson-explanation">{{ currentMission().explanation }}</p>
+            <div class="lesson-takeaways">
+              @if (currentMission().id === 'first-move') {
+                <p><strong>Instrução:</strong> um comando diz ao computador para fazer uma ação específica.</p>
+                <p><strong>Sequência:</strong> as linhas são executadas de cima para baixo; trocar a ordem pode mudar o resultado.</p>
+              }
+              @if (currentMission().id === 'broken-bridge') {
+                <p><strong>Condição:</strong> uma pergunta com resposta verdadeira ou falsa.</p>
+                <p><strong>if:</strong> executa o que está entre as chaves somente quando a condição é verdadeira; se for falsa, pula esse trecho.</p>
+              }
+              @if (currentMission().id === 'bridge-detours') {
+                <p><strong>if:</strong> testa se a ponte está quebrada e executa o desvio quando a resposta é verdadeira.</p>
+                <p><strong>else:</strong> define a alternativa: quando a ponte não está quebrada, Byte atravessa.</p>
+              }
+              @if (currentMission().id === 'automated-garden') {
+                <p><strong>Começo:</strong> <code>let volta = 0</code> cria o contador, começando no zero.</p>
+                <p><strong>Teste e atualização:</strong> <code>volta &lt; 4</code> decide se repete; <code>volta++</code> soma um depois de cada volta. Por isso, os valores 0, 1, 2 e 3 são quatro repetições.</p>
+              }
+              @if (currentMission().kind === 'house-properties') {
+                <p><strong>Classe:</strong> o molde que descreve como criar casas.</p>
+                <p><strong>Propriedades e objeto:</strong> telhado, porta e janela são características; <code>new Casa()</code> cria uma casa concreta usando o molde.</p>
+              }
+              @if (currentMission().kind === 'house-methods') {
+                <p><strong>Método:</strong> uma ação que a classe ensina seus objetos a fazer.</p>
+                <p><strong>Chamada:</strong> <code>casaDoByte.acenderLuzes()</code> executa essa ação na casa do Byte. Dentro do método, <code>this</code> significa “este objeto”.</p>
+              }
+              @if (kitchenMission()?.kitchenConcept === 'encapsulation') {
+                <p><strong>Dados protegidos:</strong> o estoque de farinha pertence à despensa e não deve ser alterado diretamente.</p>
+                <p><strong>Métodos:</strong> <code>adicionarIngrediente()</code> e <code>retirarIngrediente()</code> controlam mudanças e verificam se há quantidade disponível.</p>
+              }
+              @if (kitchenMission()?.kitchenConcept === 'abstraction') {
+                <p><strong>Interface simples:</strong> você pede <code>receita.preparar()</code> sem precisar comandar cada etapa.</p>
+                <p><strong>Detalhes escondidos:</strong> a receita mistura, assa e finaliza por dentro; a abstração deixa visível o que você precisa usar.</p>
+              }
+              @if (kitchenMission()?.kitchenConcept === 'inheritance') {
+                <p><strong>Classe-base:</strong> <code>Receita</code> define o preparo comum que pode ser reutilizado.</p>
+                <p><strong>Classe especializada:</strong> <code>ReceitaBolo extends Receita</code> herda esse preparo e acrescenta a cobertura do bolo.</p>
+              }
+              @if (kitchenMission()?.kitchenConcept === 'polymorphism') {
+                <p><strong>Mesmo método:</strong> pão e bolo respondem à chamada <code>preparar()</code>.</p>
+                <p><strong>Resultados diferentes:</strong> cada objeto executa seu próprio preparo: o pão fermenta; o bolo recebe cobertura.</p>
+              }
+            </div>
+            <div class="lesson-code"><span>ASSIM FICA NO CÓDIGO</span><pre><code>{{ currentMission().example }}</code></pre></div>
+            <button class="lesson-primary" type="button" (click)="showDemonstration()">Ver demonstração <span aria-hidden="true">→</span></button>
+          </div>
+        } @else {
+          <div class="lesson-content demo-content">
+            <span class="lesson-kicker">OLHE COMO O CÓDIGO AGE</span>
+            <h2 id="lesson-title">Do código para o mundo</h2>
+            <p class="lesson-explanation">Acompanhe a animação: cada instrução provoca uma mudança que você pode ver.</p>
+            <div class="lesson-demo" [class.demo-sequence]="currentMission().id === 'first-move'" [class.demo-condition]="currentMission().id === 'broken-bridge' || currentMission().id === 'bridge-detours'" [class.demo-loop]="currentMission().id === 'automated-garden'" [class.demo-house]="currentMission().kind === 'house-properties'" [class.demo-house-methods]="currentMission().kind === 'house-methods'" [class.demo-kitchen]="currentMission().kind === 'kitchen'" role="group" [attr.aria-label]="'Demonstração animada: ' + currentMission().concept">
+              @if (currentMission().id === 'first-move') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>programa.ts</span><span class="demo-running"><i></i> executando</span></div>
+                    @for (step of [1, 2, 3, 4]; track step) {
+                      <div class="demo-code-line" [style.--demo-delay]="(step - 1) * 1.1 + 's'">
+                        <span>{{ step }}</span><code>byte.avancar();</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">O QUE ACONTECE NO JOGO</span>
+                    <div class="demo-world-track">
+                      @for (step of [0, 1, 2, 3, 4]; track step) {
+                        <span class="demo-world-cell">
+                          @if (step === 4) { <b class="demo-world-crystal">◆</b> }
+                          @if (step < 4) { <i>{{ step + 1 }}</i> }
+                        </span>
+                      }
+                      <span class="demo-world-byte" aria-hidden="true">
+                        <svg class="byte-avatar-art" viewBox="0 0 48 58">
+                          <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                          <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                          <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                          <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                    </div>
+                    <span class="demo-world-caption">Byte avança uma casa a cada linha</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().id === 'broken-bridge') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>programa.ts</span><span class="demo-running"><i></i> escolhendo</span></div>
+                    @for (line of [
+                      { number: 1, text: 'if (haPonteAFrente) {', delay: '0s' },
+                      { number: 2, text: '  byte.avancar();', delay: '.7s' },
+                      { number: 3, text: '}', delay: '1.4s' }
+                    ]; track line.number) {
+                      <div class="demo-code-line condition-code-line" [style.--demo-delay]="line.delay">
+                        <span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">O QUE ACONTECE NO JOGO</span>
+                    <div class="condition-world">
+                      <span class="condition-world-byte" aria-label="Byte">
+                        <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                          <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                          <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                          <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                          <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                      </span><span class="condition-world-path"></span><span class="condition-world-bridge">⌁</span><span class="condition-world-crystal">◆</span>
+                    </div>
+                    <span class="condition-world-choice"><b>Se houver ponte, Byte atravessa.</b> Sem ponte, permanece em segurança.</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().id === 'bridge-detours') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>programa.ts</span><span class="demo-running"><i></i> verificando</span></div>
+                    @for (line of [
+                      { number: 1, text: 'if (ponte.quebrada) {', delay: '0s' },
+                      { number: 2, text: '  byte.desviar();', delay: '.45s' },
+                      { number: 3, text: '} else {', delay: '.9s' },
+                      { number: 4, text: '  byte.avancar();', delay: '1.35s' },
+                      { number: 5, text: '}', delay: '1.8s' }
+                    ]; track line.number) {
+                      <div class="demo-code-line condition-code-line" [style.--demo-delay]="line.delay">
+                        <span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">DUAS RESPOSTAS, DOIS CAMINHOS</span>
+                    <div class="bridge-choice-world">
+                      <div class="bridge-choice-route">
+                        <span class="bridge-choice-byte" aria-label="Byte">
+                          <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                            <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                            <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                            <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                            <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                            <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          </svg>
+                        </span><b class="bridge-choice-intact">⌁</b><span>ponte inteira</span><strong>→ atravessa</strong>
+                      </div>
+                      <div class="bridge-choice-route">
+                        <span class="bridge-choice-byte" aria-label="Byte">
+                          <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                            <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                            <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                            <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                            <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                            <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          </svg>
+                        </span><b class="bridge-choice-broken">⌁</b><span>ponte quebrada</span><strong>↘ desvia</strong>
+                      </div>
+                    </div>
+                    <span class="demo-world-caption">if escolhe uma ação; else define o que fazer no outro caso.</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().id === 'automated-garden') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>programa.ts</span><span class="demo-running"><i></i> 4 voltas</span></div>
+                    @for (line of [
+                      { number: 1, text: 'for (let volta = 0;', delay: '0s' },
+                      { number: 2, text: 'volta < 4; volta++) {', delay: '.3s' },
+                      { number: 3, text: '  byte.avancar();', delay: '.65s' },
+                      { number: 4, text: '  jardim.plantar();', delay: '.8s' },
+                      { number: 5, text: '}', delay: '1s' }
+                    ]; track line.number) {
+                      <div class="demo-code-line loop-code-line" [style.--demo-delay]="line.delay">
+                        <span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">O QUE ACONTECE NO JOGO</span>
+                    <div class="loop-world">
+                      @for (step of [1, 2, 3, 4]; track step) {
+                        <span class="loop-plot" [style.--plant-delay]="(step - 1) * 650 + 'ms'"><i>{{ step }}</i><b>🌱</b></span>
+                      }
+                    </div>
+                    <span class="demo-world-caption">O laço repete avançar + plantar em cada volta</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().kind === 'house-properties') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>casa.ts</span><span class="demo-running"><i></i> criando objeto</span></div>
+                    @for (line of [
+                      { number: 1, text: 'class Casa {', delay: '0s' },
+                      { number: 2, text: '  telhado = true;', delay: '.35s' },
+                      { number: 3, text: '  porta = true;', delay: '.7s' },
+                      { number: 4, text: '  janela = true;', delay: '1.05s' },
+                      { number: 5, text: '}', delay: '1.4s' },
+                      { number: 6, text: 'const casaDoByte = new Casa();', delay: '1.75s' }
+                    ]; track line.number) {
+                      <div class="demo-code-line house-demo-code-line" [style.--demo-delay]="line.delay">
+                        <span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">A PLANTA VIRA CASA</span>
+                    <div class="demo-house-picture">
+                      <span class="demo-house-roof"></span>
+                      <span class="demo-house-body">
+                        <i class="demo-house-window demo-window-one"></i>
+                        <i class="demo-house-door"></i>
+                        <i class="demo-house-window demo-window-two"></i>
+                      </span>
+                      <span class="demo-house-person" aria-label="Byte">
+                        <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                          <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                          <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                          <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                          <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                    </div>
+                    <span class="demo-world-caption">A classe Casa é o molde; new Casa() cria a casa do Byte.</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().kind === 'house-methods') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>casa.ts</span><span class="demo-running"><i></i> chamando método</span></div>
+                    @for (line of [
+                      { number: 1, text: 'class Casa {', delay: '0s' },
+                      { number: 2, text: '  luzesLigadas = false;', delay: '.3s' },
+                      { number: 3, text: '  acenderLuzes() {', delay: '.6s' },
+                      { number: 4, text: '    this.luzesLigadas = true;', delay: '.9s' },
+                      { number: 5, text: '  }', delay: '1.2s' },
+                      { number: 6, text: '}', delay: '1.5s' },
+                      { number: 7, text: 'const casaDoByte = new Casa();', delay: '1.8s' },
+                      { number: 8, text: 'casaDoByte.acenderLuzes();', delay: '2.1s' }
+                    ]; track line.number) {
+                      <div class="demo-code-line house-demo-code-line" [style.--demo-delay]="line.delay">
+                        <span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b>
+                      </div>
+                    }
+                  </div>
+                  <div class="demo-world">
+                    <span class="demo-world-label">O MÉTODO MUDA O OBJETO</span>
+                    <div class="demo-house-picture demo-method-picture">
+                      <span class="demo-house-roof"></span>
+                      <span class="demo-house-body">
+                        <i class="demo-house-window demo-window-one"></i>
+                        <i class="demo-house-door"></i>
+                        <i class="demo-house-window demo-window-two"></i>
+                      </span>
+                      <span class="demo-house-person" aria-label="Byte">
+                        <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                          <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                          <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                          <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                          <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                          <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      <span class="demo-house-light demo-light-one"></span>
+                      <span class="demo-house-light demo-light-two"></span>
+                    </div>
+                    <span class="demo-world-caption">O método acenderLuzes() faz as janelas brilharem.</span>
+                  </div>
+                </div>
+              }
+              @if (currentMission().kind === 'kitchen') {
+                <div class="demo-workbench">
+                  <div class="demo-code">
+                    <div class="demo-code-title"><span>receitas.ts</span><span class="demo-running"><i></i> na cozinha</span></div>
+                    @if (kitchenMission()?.kitchenConcept === 'encapsulation') {
+                      @for (line of [
+                        { number: 1, text: 'class Despensa {', delay: '0s' },
+                        { number: 2, text: '  private farinha = 0;', delay: '.3s' },
+                        { number: 3, text: '  adicionarIngrediente() { ... }', delay: '.6s' },
+                        { number: 4, text: '  retirarIngrediente() { ... }', delay: '.9s' },
+                        { number: 5, text: '}', delay: '1.2s' }
+                      ]; track line.number) {
+                        <div class="demo-code-line kitchen-demo-line" [style.--demo-delay]="line.delay"><span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b></div>
+                      }
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'abstraction') {
+                      @for (line of [
+                        { number: 1, text: 'receita.preparar();', delay: '0s' },
+                        { number: 2, text: '  misturar → assar → finalizar', delay: '.5s' }
+                      ]; track line.number) {
+                        <div class="demo-code-line kitchen-demo-line" [style.--demo-delay]="line.delay"><span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b></div>
+                      }
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'inheritance') {
+                      @for (line of [
+                        { number: 1, text: 'class ReceitaBolo extends Receita {', delay: '0s' },
+                        { number: 2, text: '  preparar() // herdado', delay: '.45s' },
+                        { number: 3, text: '  colocarCobertura();', delay: '.9s' },
+                        { number: 4, text: '}', delay: '1.35s' }
+                      ]; track line.number) {
+                        <div class="demo-code-line kitchen-demo-line" [style.--demo-delay]="line.delay"><span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b></div>
+                      }
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'polymorphism') {
+                      @for (line of [
+                        { number: 1, text: 'receitaPao.preparar();', delay: '0s' },
+                        { number: 2, text: 'receitaBolo.preparar();', delay: '.7s' }
+                      ]; track line.number) {
+                        <div class="demo-code-line kitchen-demo-line" [style.--demo-delay]="line.delay"><span>{{ line.number }}</span><code>{{ line.text }}</code><b>✓</b></div>
+                      }
+                    }
+                  </div>
+                  <div class="demo-world demo-kitchen-world">
+                    <span class="demo-world-label">A COZINHA DO BYTE</span>
+                    @if (kitchenMission()?.kitchenConcept === 'encapsulation') {
+                      <div class="demo-pantry"><span class="demo-pantry-lock">🔒</span><span>🌾 Farinha</span><b class="pantry-jar pantry-jar-one">1</b><b class="pantry-jar pantry-jar-two">2</b><i>estoque protegido</i></div>
+                      <span class="demo-world-caption">A despensa confere antes de mudar o estoque.</span>
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'abstraction') {
+                      <div class="demo-recipe-flow"><span>🥣<small>Misturar</small></span><b>→</b><span>🔥<small>Assar</small></span><b>→</b><span>🍞<small>Servir</small></span></div>
+                      <span class="demo-world-caption">Uma chamada inicia todas as etapas escondidas.</span>
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'inheritance') {
+                      <div class="demo-inheritance-flow"><span class="demo-base-recipe">Receita<small>preparo comum</small></span><b>↓ herda</b><span class="demo-special-recipe">ReceitaBolo<small>+ cobertura 🎂</small></span></div>
+                      <span class="demo-world-caption">A receita especializada reaproveita o preparo da classe-base.</span>
+                    }
+                    @if (kitchenMission()?.kitchenConcept === 'polymorphism') {
+                      <div class="demo-dishes"><span>🥖<small>preparar()</small></span><span>🎂<small>preparar()</small></span></div>
+                      <span class="demo-world-caption">Mesmo método, preparo e prato diferentes.</span>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="lesson-actions">
+              <button class="lesson-back" type="button" (click)="startAgainFromLesson()">Voltar à explicação</button>
+              <button class="lesson-primary" type="button" (click)="startMission()">{{ replayingLesson() ? 'Voltar à missão' : 'Começar missão' }} <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        }
+      </section>
+    </div>
+  }
+  @if (introOpen()) {
+    <div class="lesson-backdrop intro-backdrop">
+      <section class="lesson-dialog intro-dialog" role="dialog" aria-modal="true" aria-labelledby="byte-intro-title">
+        <div class="intro-content">
+          <div class="intro-spark intro-spark-one" aria-hidden="true">✦</div>
+          <div class="intro-spark intro-spark-two" aria-hidden="true">✧</div>
+          <div class="byte-intro-art" aria-hidden="true">
+            <span class="intro-orbit intro-orbit-one"></span><span class="intro-orbit intro-orbit-two"></span>
+            <svg viewBox="0 0 116 132">
+              <path d="M58 18V8m-7 0h14" stroke="#294537" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="58" cy="7" r="5" fill="#f5c959"/>
+              <path d="M29 102v12m58-12v12" stroke="#294537" stroke-width="8" stroke-linecap="round"/>
+              <path d="M20 56a13 13 0 0 1 13-13h50a13 13 0 0 1 13 13v34a17 17 0 0 1-17 17H37a17 17 0 0 1-17-17z" fill="#f5c959" stroke="#294537" stroke-width="5"/>
+              <rect x="30" y="53" width="56" height="35" rx="13" fill="#fff7db"/>
+              <path d="M40 68q5-8 10 0m16 0q5-8 10 0" fill="none" stroke="#294537" stroke-width="4" stroke-linecap="round"/>
+              <ellipse class="intro-talking-mouth" cx="58" cy="79" rx="5" ry="2.5" fill="#294537"/>
+              <path d="M20 67h-8m92 0h-8" stroke="#294537" stroke-width="5" stroke-linecap="round"/>
+              <path d="M38 109v8m40-8v8" stroke="#294537" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="intro-kicker">UM NOVO AMIGO EM CODÁRIA</span>
+          <h2 id="byte-intro-title">Oi! Eu sou o Byte.</h2>
+          <div class="intro-speech-bubble"><span class="speech-speaker">BYTE</span><p>Sou um robozinho curioso! Você escreve o código, e eu exploro Codária. Vamos nessa?</p></div>
+          <button class="lesson-primary intro-button" type="button" (click)="meetByte()">Vamos explorar juntos <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </div>
+  }
+  @if (coachmarkOpen()) {
+    <div class="coachmark-backdrop">
+      <section class="coachmark-dialog" role="dialog" aria-modal="true" aria-labelledby="coachmark-title">
+        <span class="coachmark-arrow" aria-hidden="true">↓</span>
+        <span class="coachmark-kicker">PRIMEIROS PASSOS</span>
+        <h2 id="coachmark-title">Vamos montar seu programa!</h2>
+        <p>Clique em um bloco ou arraste-o para a sequência. Depois, execute e veja Byte seguir o código.</p>
+        <div class="coachmark-flow" aria-hidden="true"><span>🧩 Bloco</span><b>→</b><span>⌨️ Código</span><b>→</b><span>🤖 Byte</span></div>
+        <button class="coachmark-button" type="button" (click)="dismissCoachmark()">Entendi, vamos lá!</button>
+      </section>
+    </div>
+  }
+  @if (worldMapOpen()) {
+    <div class="world-map-backdrop" (keydown.escape)="closeWorldMap()">
+      <section class="world-map-dialog" role="dialog" aria-modal="true" aria-labelledby="world-map-title">
+        <header class="world-map-heading">
+          <div>
+            <span class="world-map-kicker">BEM-VINDO A CODÁRIA</span>
+            <h2 id="world-map-title">Bem-vindo à Codária</h2>
+            <p>Conclua missões para explorar novos lugares!</p>
+          </div>
+          <button class="world-map-close" type="button" (click)="closeWorldMap()" aria-label="Fechar mapa">×</button>
+        </header>
+        <div class="world-map-scene" aria-label="Mapa ilustrado das missões de Codária">
+          <span class="map-cloud map-cloud-one" aria-hidden="true"></span>
+          <span class="map-cloud map-cloud-two" aria-hidden="true"></span>
+          <span class="map-cloud map-cloud-three" aria-hidden="true"></span>
+          <span class="map-hill map-hill-one" aria-hidden="true"></span>
+          <span class="map-hill map-hill-two" aria-hidden="true"></span>
+          <span class="map-lake" aria-hidden="true"></span>
+          <span class="map-tree map-tree-one" aria-hidden="true">🌲</span>
+          <span class="map-tree map-tree-two" aria-hidden="true">🌳</span>
+          <span class="map-flower map-flower-one" aria-hidden="true">🌼</span>
+          <span class="map-flower map-flower-two" aria-hidden="true">🌷</span>
+          <svg class="world-map-route" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+            <path class="world-route-shadow" d="M150 100 C300 100 350 100 500 100 S700 100 850 100 L850 250 C700 250 650 250 500 250 S300 250 150 250 L150 400 C250 400 300 400 380 400 S540 400 620 400 S750 400 850 400" />
+            <path class="world-route-line" d="M150 100 C300 100 350 100 500 100 S700 100 850 100 L850 250 C700 250 650 250 500 250 S300 250 150 250 L150 400 C250 400 300 400 380 400 S540 400 620 400 S750 400 850 400" />
+          </svg>
+          @for (mission of missions; track mission.id; let index = $index) {
+            <button
+              class="world-map-stop"
+              [class.selected]="mission.id === currentMission().id"
+              [class.finished]="isMissionDone(mission.id)"
+              [class.world-stop-forest]="index === 0"
+              [class.world-stop-bridge]="index === 1 || index === 2"
+              [class.world-stop-garden]="index === 3"
+              [class.world-stop-house]="index === 4"
+              [class.world-stop-method]="index === 5"
+              [class.world-stop-kitchen]="index > 5"
+              [style.left.%]="mapNodeLeft(index)"
+              [style.top.%]="mapNodeTop(index)"
+              type="button"
+              (click)="selectMission(mission)"
+              [attr.aria-current]="mission.id === currentMission().id ? 'step' : null"
+            >
+              <span class="world-node-icon" aria-hidden="true">
+                @if (index === 0) { ✦ }
+                @if (index === 1) { ⌁ }
+                @if (index === 2) { ↗ }
+                @if (index === 3) { ❋ }
+                @if (mission.kind === 'house-properties') { ⌂ }
+                @if (mission.kind === 'house-methods') { ƒ }
+                @if (mission.kind === 'kitchen') { 🍳 }
+              </span>
+              <span class="world-node-caption"><small>{{ mission.region }}</small><strong>{{ mission.title }}</strong></span>
+              <span class="world-node-check" aria-hidden="true">{{ isMissionDone(mission.id) ? '✓' : index + 1 }}</span>
+            </button>
+          }
+          <div class="world-map-byte" [style.left.%]="mapBytePosition().left" [style.top.%]="mapBytePosition().top" aria-label="Byte está explorando Codária">
+            <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+              <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+              <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+              <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+              <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+              <path d="M18 28q6 6 12 0M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <small>Byte</small>
+          </div>
+        </div>
+        <footer class="world-map-footer">
+          <span class="world-map-legend"><i></i> Missão concluída</span>
+          <span>{{ completed().length }} de {{ missions.length }} lugares explorados</span>
+        </footer>
+      </section>
+    </div>
+  }
+  @if (storyOpen()) {
+    @if (currentStory(); as story) {
+      <div class="story-backdrop">
+        <section class="story-dialog" [class.story-shy]="story.shyByte" role="dialog" aria-modal="true" aria-labelledby="story-title">
+          <header class="story-heading">
+            <span class="story-location">{{ story.prop }} {{ story.location }}</span>
+            <span class="story-scene-label">UMA PAUSA NA AVENTURA</span>
+          </header>
+          <div class="story-scene" [class.story-kitchen-scene]="story.scene === 'kitchen'">
+            <span class="story-spark story-spark-one" aria-hidden="true">✦</span>
+            <span class="story-spark story-spark-two" aria-hidden="true">✧</span>
+            <div class="story-character story-byte">
+              <svg class="byte-avatar-art" viewBox="0 0 48 58" aria-hidden="true">
+                <path d="M24 8V3m-4 0h8" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+                <rect x="7" y="10" width="34" height="34" rx="10" fill="#f5c959" stroke="#294537" stroke-width="3" />
+                <rect x="12" y="16" width="24" height="16" rx="6" fill="#fff7db" />
+                <circle cx="19" cy="23" r="2" fill="#294537" /><circle cx="29" cy="23" r="2" fill="#294537" />
+                <ellipse class="story-byte-mouth" cx="24" cy="29" rx="4" ry="2" fill="#294537" />
+                <path d="M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#294537" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              <span>BYTE</span>
+            </div>
+            <span class="story-heart" aria-hidden="true">♡</span>
+            <div class="story-character story-partner story-luma">
+              <svg class="luma-avatar-art story-luma-art" viewBox="0 0 48 58" aria-hidden="true">
+                <path d="M24 8V4m-4 0h8" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+                <path d="m17 5 3-3 4 3 4-3 3 3-3 3h-8z" fill="#d5a9f2" stroke="#51366b" stroke-width="1.5" stroke-linejoin="round" />
+                <rect x="7" y="10" width="34" height="34" rx="11" fill="#b58add" stroke="#51366b" stroke-width="3" />
+                <rect x="12" y="16" width="24" height="16" rx="6" fill="#faf4ff" />
+                <path d="m17 22 2-2 2 2m6 0 2-2 2 2" fill="none" stroke="#51366b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="19" cy="24" r="1.6" fill="#51366b" /><circle cx="29" cy="24" r="1.6" fill="#51366b" />
+                <ellipse class="story-luma-mouth" cx="24" cy="29" rx="4" ry="2" fill="#51366b" />
+                <path d="M7 24H3m42 0h-4M15 45v7m18-7v7" fill="none" stroke="#51366b" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              <span>LUMA</span>
+            </div>
+          </div>
+          @if (story.narration) { <p class="story-narration">{{ story.narration }}</p> }
+          <div class="story-dialogue">
+            @if (story.partnerFirst) {
+              <p class="story-line partner-line"><strong>Luma</strong>{{ story.partnerLine }}</p>
+              <p class="story-line byte-line"><strong>Byte</strong>{{ story.byteLine }}</p>
+            } @else {
+              <p class="story-line byte-line"><strong>Byte</strong>{{ story.byteLine }}</p>
+              <p class="story-line partner-line"><strong>Luma</strong>{{ story.partnerLine }}</p>
+            }
+          </div>
+          <button class="story-continue" type="button" (click)="continueStory()">Continuar <span aria-hidden="true">→</span></button>
+        </section>
+      </div>
+    }
+  }
+  @if (celebrationOpen()) {
+    <div class="celebration-backdrop">
+      <div class="celebration-confetti" aria-hidden="true">
+        @for (particle of celebrationParticles; track particle) {
+          <span [style.--particle-x.%]="(particle * 37) % 100" [style.--particle-delay.ms]="(particle % 8) * 90" [style.--particle-spin]="(particle % 2 ? 1 : -1) * 220 + 'deg'"></span>
+        }
+      </div>
+      <section class="celebration-dialog" role="dialog" aria-modal="true" aria-labelledby="celebration-title">
+        <button class="celebration-close" type="button" (click)="dismissCelebration()" aria-label="Fechar comemoração e voltar ao programa">×</button>
+        <div class="celebration-rays" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
+        <div class="celebration-byte" aria-hidden="true">
+          <svg viewBox="0 0 100 112">
+            <path d="M50 17V8m-6 0h12" stroke="#294537" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="50" cy="7" r="4" fill="#f5c959"/>
+            <path d="M25 91v10m50-10v10" stroke="#294537" stroke-width="7" stroke-linecap="round"/>
+            <rect x="16" y="31" width="68" height="59" rx="19" fill="#f5c959" stroke="#294537" stroke-width="4"/>
+            <rect x="24" y="40" width="52" height="35" rx="12" fill="#fff7db"/>
+            <path d="M33 54q5-8 10 0m14 0q5-8 10 0" fill="none" stroke="#294537" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M38 65q12 13 24 0" fill="none" stroke="#294537" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M16 52h-6m80 0h-6" stroke="#294537" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span class="celebration-spark" aria-hidden="true">✦</span>
+        </div>
+        <span class="celebration-kicker">MISSÃO CONCLUÍDA</span>
+        <h2 id="celebration-title">Você conseguiu!</h2>
+        <p>Byte está comemorando com você. Seu código fez a diferença!</p>
+        <div class="celebration-reward" aria-label="Cristal conquistado"><span>◆</span> Cristal conquistado!</div>
+        <button class="celebration-primary" type="button" (click)="continueAfterCelebration()">
+          {{ missions.indexOf(currentMission()) < missions.length - 1 ? 'Próxima missão' : 'Jogar de novo' }} <span aria-hidden="true">→</span>
+        </button>
+        <button class="celebration-world" type="button" (click)="exploreWorldFromCelebration()" aria-label="Explorar o mundo de Byte">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3.5 12h17M12 3c2.2 2.4 3.2 5.4 3.2 9s-1 6.6-3.2 9c-2.2-2.4-3.2-5.4-3.2-9S9.8 5.4 12 3Z"></path></svg>
+        </button>
+      </section>
+    </div>
+  }
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
