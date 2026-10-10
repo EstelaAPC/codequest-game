@@ -1,59 +1,45 @@
-# CodequestGame
+# CodeQuest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+CodeQuest is a small, playable programming-learning game set in Codária. Players build safe command sequences, watch Byte carry them out, and learn sequencing, conditions, loops, classes, objects, and methods through nine missions.
 
-## Development server
+## Play locally
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Requirements: Node.js and npm.
 
 ```bash
-ng generate component component-name
+npm ci
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open `http://localhost:4200/`. Byte introduces himself on a full-screen welcome page with an animated speech bubble. Every mission begins with a clear concept lesson and a visual demonstration. Click a block or drag it into the sequence; drag existing blocks to change their order, then select **Executar** to watch Byte follow the code. The read-only TypeScript view highlights each command line green after a successful action and red when the interpreter stops on an error. Use the **Mundo** shortcut to explore Codária; Byte moves along the illustrated route as missions are completed. The completion celebration can be closed to return to the program or used to open the map. On mobile, the game and code editor appear side by side. Progress is saved in browser `localStorage` when available.
+
+## Commands and missions
+
+- **O Primeiro Movimento:** sequence `Avançar` commands to reach the crystal.
+- **A Ponte Quebrada:** use the bridge condition before crossing; an unchecked move stops safely.
+- **O Jardim Automatizado:** repeat the move-and-plant action to fill all four plots.
+- **A Casa do Byte:** add properties to the `Casa` class and create Byte’s house object.
+- **A Casa Ganha Vida:** call methods on Byte’s house to open the door, ring the bell, or turn on the lights.
+- **A Despensa Protegida:** encapsulate pantry stock behind methods that validate additions and removals.
+- **A Receita Misteriosa:** use abstraction to prepare bread through one high-level method call.
+- **A Receita de Família:** inherit common preparation from `Receita` and add a specialized cake recipe.
+- **Um Comando, Muitos Pratos:** use the same `preparar()` method to make bread and cake differently.
+
+The TypeScript panel is read-only. The game executes only the typed, bounded command interpreter in `src/app/game/interpreter.ts`; it does not evaluate player-provided JavaScript.
+
+## Checks
 
 ```bash
-ng generate --help
+npm test -- --watch=false
+npm run build
 ```
 
-## Building
+Unit tests cover the interpreter and the Angular mission/editor view. There is no end-to-end test framework configured yet.
 
-To build the project run:
+## GitHub Pages
 
-```bash
-ng build
-```
+The `Deploy to GitHub Pages` workflow builds with `/codequest-game/` as the base path, runs unit tests, and publishes the Angular browser bundle. Enable **Settings → Pages → Build and deployment → GitHub Actions** in the repository before the first deployment. The workflow deploys on pushes to `main` and can also be started manually.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Art and credits
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+All game character and interface artwork is original inline SVG/CSS authored for this project; no third-party art, fonts, audio, or runtime asset URLs are required. Details are recorded in [ASSET_CREDITS.md](src/assets/licenses/ASSET_CREDITS.md).
